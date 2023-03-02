@@ -1,13 +1,13 @@
-## <font color='red'>Pentaho 9.3 - Containers</font>  
+## <font color='red'>Pentaho 9.4 - Containers</font>  
 
-The following pre-requisites configure the Pentaho Server and Data Integration 9.3.
+The following pre-requisites configure the Pentaho Server and Data Integration 9.4.
 
 Prerequisites for DockMaker:
 * Docker
 * A Docker Hub user account - pull required database images
 * CURL command on host
-* Java 8 or 11
-* Pentaho EE license - PENTAHO_INSTALLED_LICENSE_PATH=/data/licenses/.installedLicenses.xml
+* Java 11
+* Pentaho EE license - PENTAHO_INSTALLED_LICENSE_PATH=/home/installer/.pentaho/.installedLicenses.xml
 
 ---
 
@@ -29,7 +29,7 @@ Run install_license.sh with the install switch and the location and name of your
 Windows:  
 Run install_license.bat with the install switch and the location and name of your license file as a parameter. Be sure to use quotation marks (") to escape any spaces in the path or file name.
 ```
-install_license.bat install "C:\dock-maker-9.3.0.0-428\license-installer"\Pentaho BI Platform Enterprise Edition.lic"
+install_license.bat install "C:\dock-maker-9.4.0.0-428\license-installer"\Pentaho BI Platform Enterprise Edition.lic"
 ```
 ``* Repeat the previous step for all needed licenses.``
  
@@ -66,13 +66,13 @@ DockMaker is a command line tool used to create containers for Pentaho products:
 * Pentaho Data Integration
 * Carte server
 
-<font color='teal'>DockMaker has been downloaded and copied to ~/dock-maker-9.3.0.0</font>
+<font color='teal'>DockMaker has been downloaded and copied to ~/dock-maker-9.4.0.0</font>
 
 Install the package by completing these steps.
 
 ``run the install script:``
 ```
-cd dock-maker-9.3.0.0
+cd dock-maker-9.4.0.0
 ./install.sh
 ```
 Note: a console window will appear.
@@ -98,12 +98,12 @@ DockMaker directories:
 
 ---
 
-<em>Pentaho EE 9.3.0.0-428 BA / DI Containers</em>
+<em>Pentaho EE 9.4.0.0-343 BA / DI Containers</em>
 
-``build Pentaho Server EE 9.3.0.0:428:``
+``build Pentaho Server EE 9.4.0.0:343:``
 ```
-cd dock-maker-9.3.0.0-428
-./DockMaker.sh -V 9.3.0.0/428/ee -A paz,pdd,pir -U --EULA_ACCEPT=true
+cd dock-maker-9.4.0.0-343
+./DockMaker.sh -V 9.4.0.0/343/ee -A paz,pdd,pir -U --EULA_ACCEPT=true
 ```
 Note: if you wish to automate the build and deploy add the flag: -X
 
@@ -122,7 +122,7 @@ docker compose -f generatedFiles/docker-compose.yml start
 
 ---
 
-<em>Pentaho EE 9.3.0.0-428 PDI / Carte Containers</em>
+<em>Pentaho EE 9.4.0.0-343 PDI / Carte Containers</em>
 
 The DockMaker command tool supports three different volumes used by the containers:
 
@@ -145,15 +145,15 @@ The database volume is only created when a Pentaho Server container is run.  Thi
 
 ``build Pentaho Data Integration 9.3.0.0:``
 ```
-cd dock-maker-9.3.0.0-428
-./DockMaker.sh -V 9.3.0.0/428/ee -T pdi -p 8082 -U --EULA_ACCEPT=true
+cd dock-maker-9.4.0.0-343
+./DockMaker.sh -V 9.4.0.0/343/ee -T pdi -p 8082 -U --EULA_ACCEPT=true
 ```
 Note: When executed with -X, the container will be built and a test.ktr transformation will be run on the container.  
 
 ``build a Carte server 9.3.0.0:``
 ```
-cd dock-maker-9.3.0.0-428
-./DockMaker.sh -V 9.3.0.0/428/ee -T carte -p 8083 -U --EULA_ACCEPT=true
+cd dock-maker-9.4.0.0-343
+./DockMaker.sh -V 9.4.0.0/343/ee -T carte -p 8083 -U --EULA_ACCEPT=true
 ```
 user: cluster  
 password: cluster
